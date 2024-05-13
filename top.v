@@ -1,19 +1,30 @@
-`include "adder/adder.v"
-`include "d_ff.v"
-`include "shift_register/shift_register.v"
+`include "fa.v"
+module top( input [3:0]a,b,
+		input rst,clk,
+		output [3:0]out);
 
-module top(input a, b, clk, rst,
-           output [3:0] out);
+reg [3:0]count=4'd0;
+reg buff_a,buff_b;
 
-    wire [3:0] buff_a, buff_b;
-    wire cin ;
-    wire  cout, buff_out;
+fa fa_inst(.a(buff_a),.b(buff_b),.rst(rst),.clk(clk),.out(out));
+always @ ( posedge rst , posedge clk)
+begin
+	if (rst)
+	begin
+		count<=4'd0;
+		buff_a<=4'd0;
+		buff_b<=4'd0;
+	end
+	else
+	begin
+		if(count==4'd3)
+		begin
+			count<=0;
+			buff_a<=a[count];
+			buff_b<=b[count];
+		end	
+		
+	end
 
-    shift_register uus1(.d(a), .clk(clk), .en(1'b1), .dir(1'b1), .rst(rst), .out(buff_a));
-    shift_register uus2(.d(b), .clk(clk), .en(1'b1), .dir(1'b1), .rst(rst), .out(buff_b));
-    adder uuadr(.a(buff_a[0]), .b(buff_b[0]), .cin(cin), .sum(buff_out), .c(cout));
-    dff uud(.clk(clk), .reset(rst), .d(cout), .q(cin));
-    shift_register uus3(.d(buff_out), .clk(clk), .en(1'b1), .dir(1'b1), .rst(rst), .out(out));
-
+end
 endmodule
-

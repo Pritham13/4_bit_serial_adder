@@ -1,0 +1,57 @@
+$date
+	Fri May 10 18:56:01 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module fa_tv $end
+$var wire 4 ! out [3:0] $end
+$var reg 1 " a $end
+$var reg 1 # b $end
+$var reg 1 $ clk $end
+$var reg 1 % rst $end
+$scope module inst1 $end
+$var wire 1 " a $end
+$var wire 1 # b $end
+$var wire 1 $ clk $end
+$var wire 1 % rst $end
+$var reg 4 & out [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 &
+1%
+1$
+1#
+1"
+b0 !
+$end
+#5
+0$
+#10
+b1000 !
+b1000 &
+1$
+0#
+0%
+#15
+0$
+#20
+b100 !
+b100 &
+1$
+1#
+#25
+0$
+#30
+b10 !
+b10 &
+1$
