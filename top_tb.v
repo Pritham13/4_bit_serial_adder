@@ -3,7 +3,8 @@
 module top_tb;
 
     // Inputs
-    reg a, b, clk, rst;
+    reg [3:0]a, b;
+    reg  clk, rst;
     
     // Outputs
     wire [3:0] out;
@@ -30,20 +31,12 @@ module top_tb;
     // Apply test inputs
     initial begin
         // Test case 1: a = 0101, b = 1010
-        a = 1'b0; b = 1'b0;
-        #20 a = 1'b0; b = 1'b1;
-        #10 a = 1'b0; b = 1'b0;
-        #10 a = 1'b1; b = 1'b1;
-        #10 a = 1'b0; b = 1'b0;
-        
-        // Test case 2: a = 1111, b = 1111
-        #60 a = 1'b1; b = 1'b1;
-        #10 a = 1'b1; b = 1'b1;
-        #10 a = 1'b1; b = 1'b1;
-        #10 a = 1'b1; b = 1'b1;
-        
-        // Add more test cases as needed
-        
+        a = 4'd0; b = 4'd0;
+        #40 a = 4'd1; b = 4'd2;
+        #40 a = 4'd0; b = 4'd1;
+        #40 a = 4'd3; b = 4'd2;
+        #40 a = 4'd0; b = 4'd0;
+                        
         #100 $finish;
     end
     initial begin

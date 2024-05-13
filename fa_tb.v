@@ -1,3 +1,4 @@
+`include "fa.v"
 module fa_tv();
 
 reg a,b,rst,clk;
