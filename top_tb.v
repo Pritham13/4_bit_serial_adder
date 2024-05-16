@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-`include "top.v"
+`include "sa.v"
 module top_tb;
 
     // Inputs
@@ -10,7 +10,7 @@ module top_tb;
     wire [3:0] out;
     
     // Instantiate the Unit Under Test (UUT)
-    top uut (
+    sa uut (
         .a(a),
         .b(b),
         .clk(clk),

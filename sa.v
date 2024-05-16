@@ -1,5 +1,5 @@
 `include "fa.v"
-module top( input [3:0]a,b,
+module sa( input [3:0]a,b,
 		input rst,clk,
 		output [3:0]out);
 
