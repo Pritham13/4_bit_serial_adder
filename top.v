@@ -18,12 +18,14 @@ begin
 	end
 	else
 	begin
-		count<= count +1;
-		if(count!=4'd3)
+		count<= count +4'd1;
+		if(count<=4'd3)
 		begin
 			buff_a<=a[count];
 			buff_b<=b[count];
 		end	
+		else 
+			count<=4'd0;
 		
 	end
 

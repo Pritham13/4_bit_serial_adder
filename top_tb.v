@@ -20,7 +20,7 @@ module top_tb;
     
     // Initialize clock and reset
     initial begin
-        clk = 0;
+        clk = 1;
         rst = 1;
         #10 rst = 0;
     end
