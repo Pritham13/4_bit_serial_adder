@@ -1,4 +1,4 @@
-`include "sa_inter.sv"
+`include "interface.sv"
 `include "sa_tb.sv"
 `include "sa.v"
 
@@ -6,9 +6,9 @@ module top_sa();
 	bit clk=0;
 	always #5 clk=~clk;
 
-	sa_inter i1(clk);
+	serial_addr_interface i1(clk);
 	sa_tb inst1(i1.tb);
-        sa dut(.*);
+        sa dut(.a(i1.a),.b(i1.b),.rst(i1.rst),.clk(i1.clk),.out(i1.out));
 
 	initial begin 
         $dumpfile("sa.vcd");
