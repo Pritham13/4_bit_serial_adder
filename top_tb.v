@@ -35,8 +35,7 @@ module top_tb;
         #40 a = 4'd1; b = 4'd2;
         #40 a = 4'd0; b = 4'd1;
         #40 a = 4'd3; b = 4'd2;
-        #40 a = 4'd0; b = 4'd0;
-                        
+        #40 a = 4'd0; b = 4'd0;               
         #100 $finish;
     end
     initial begin
